@@ -1,0 +1,198 @@
+<html><head>
+<style>
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Press Start 2P', cursive;
+  background: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.scene-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  border: 4px solid #33ff33;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.scene-image {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #33ff33;
+}
+
+.scene-text {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.choice-button {
+  background: #33ff33;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  transition: all 0.3s;
+}
+
+.choice-button:hover {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+#scene-counter {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color: #33ff33;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.scene-container {
+  animation: fadeIn 1s ease-in;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="scene-counter">Cena: 1/24</div>
+
+<div id="game-container"></div>
+
+<script>
+const scenes = [
+  {
+    text: "Seja bem vindo, Heroína. Você está adentrando a um reino futuristico, o qual o principio básico é que todos aprendem, desde muito cedo, desenvolver sistemas complexos para computadores.",
+    type: "normal"
+  },
+  {
+    text: "Você já domina o desenvolvimento de sistemas mais avançados?",
+    type: "choice",
+    choices: ["Sim", "Não"]
+  },
+  {
+    text: "Então saí daqui sabixão.",
+    type: "ending",
+    showRestart: true
+  },
+  {
+    text: "Tá tudo bem não saber, mais vamos precisar aprender. O conselho do reino designou um mestre para ajudar você. A sua futura sobrevivência neste reino vai depender desses aprendizados, então preste bastante atenção.",
+    type: "normal"
+  },
+  {
+    text: "Boa sorte! Acabei tirando do site todos os jogos, pois eles não estavam funcionando. Então acabou ficando só texto atrás de texto, perdão.",
+    type: "normal"
+  },
+  {
+    text: "Os artefatos envolvidos são os documentos que te permitem saber como o sistema deve ser criado. Por exemplo, nos artefatos irá ser dito qual deve ser a cor do seu sistema, o que ele precisa fazer e como ele deve fazer cada coisa.",
+    type: "normal"
+  },
+  // ... Falta adicionar as outras cenas.
+];
+
+let currentScene = 0;
+let choiceMade = null;
+
+function renderScene() {
+  const scene = scenes[currentScene];
+  const container = document.getElementById('game-container');
+  const sceneCounter = document.getElementById('scene-counter');
+  
+  container.innerHTML = '';
+  
+  const sceneDiv = document.createElement('div');
+  sceneDiv.className = 'scene-container';
+
+  const imageDiv = document.createElement('div');
+  imageDiv.className = 'scene-image';
+  if(currentScene === 0){
+    imageDiv.innerHTML = `<img src="aa.jpeg" alt="eitcha" width="100%" height="100%">`;
+  } else{
+  imageDiv.innerHTML = `<svg width="100%" height="100%" viewBox="0 0 300 200">
+    <rect width="100%" height="100%" fill="#111"/>
+    <text x="50%" y="50%" fill="#33ff33" text-anchor="middle">Cena ${currentScene + 1}</text>
+  </svg>`;
+  }
+  
+  const textDiv = document.createElement('div');
+  textDiv.className = 'scene-text';
+  textDiv.textContent = scene.text;
+  
+  sceneDiv.appendChild(imageDiv);
+  sceneDiv.appendChild(textDiv);
+  
+  if (scene.type === 'choice') {
+    const choicesDiv = document.createElement('div');
+    scene.choices.forEach(choice => {
+      const button = document.createElement('button');
+      button.className = 'choice-button';
+      button.textContent = choice;
+      button.onclick = () => makeChoice(choice);
+      choicesDiv.appendChild(button);
+    });
+    sceneDiv.appendChild(choicesDiv);
+  } else if (scene.type === 'ending' && scene.showRestart) {
+    const restartButton = document.createElement('button');
+    restartButton.className = 'choice-button';
+    restartButton.textContent = 'Recomeçar';
+    restartButton.onclick = restartGame;
+    sceneDiv.appendChild(restartButton);
+  } else {
+    const nextButton = document.createElement('button');
+    nextButton.className = 'choice-button';
+    nextButton.textContent = 'Continuar';
+    nextButton.onclick = nextScene;
+    sceneDiv.appendChild(nextButton);
+  }
+  
+  container.appendChild(sceneDiv);
+  sceneCounter.textContent = `Cena: ${currentScene + 1}/${scenes.length}`;
+}
+
+function makeChoice(choice) {
+  choiceMade = choice;
+  if (choice === 'Sim') {
+    currentScene = 2; // Go to ending scene
+  } else {
+    currentScene = 3; // Continue with the story
+  }
+  renderScene();
+}
+
+function nextScene() {
+  if (currentScene < scenes.length - 1) {
+    currentScene++;
+    renderScene();
+  }
+}
+
+function restartGame() {
+  currentScene = 0;
+  choiceMade = null;
+  renderScene();
+}
+
+// Start the game
+renderScene();
+</script>
+
+</body></html>
