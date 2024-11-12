@@ -106,7 +106,95 @@ const scenes = [
     text: "Os artefatos envolvidos são os documentos que te permitem saber como o sistema deve ser criado. Por exemplo, nos artefatos irá ser dito qual deve ser a cor do seu sistema, o que ele precisa fazer e como ele deve fazer cada coisa.",
     type: "normal"
   },
-  // ... Falta adicionar as outras cenas.
+  {
+    text: "O primeiro passo para se sair bem sucedido nesse combate diário que é desenvolver sistemas, é ter as ferramentas certas.",
+    type: "normal"
+  },
+  {
+    text: "O Scrum é uma ferramenta poderosa. Scrum define que o processo de desenvolvimento de sistemas deve possuir cinco cerimônias: Planejamento do Backlog - Utilizado sempre ao iniciar um novo projeto. Tendo como principal função definir e priorizar as tarefas que precisam ser realizadas durante todo o projeto. ",
+    type: "normal"
+  },
+  {
+    text: "Planejamento da Sprint - Ocorre no inicio de cada sprint. Define quais itens do backlog serão desenvolvidos durante a sprint.",
+    type: "normal"
+  },
+  {
+    text: "Reuniões diárias - Ocorre todo dia, dura no máximo 15 minutos. Cada membro da equipe compartilha o que fez no dia anterior e se tiveram algum impedimento.",
+    type: "normal"
+  },
+  {
+    text: "Revisão da sprint - Ocorre no fim da sprint. A equipe mostra as funcionalidades concluidas, de forma a validá-las, verificar se estam corretas.",
+    type: "normal"
+  },
+  {
+    text: "Retrospectiva - Ocorre no fim do projeto. Tem como objetivo refletir sobre todo o processo de trabalho da equipe e o que pode ser melhorado para os próximos projetos.",
+    type: "normal"
+  },
+  {
+    text: "Muitos softwares necessitam armazenar informações. Caso o sistema criado seja web e as informações geradas forem apenas relativa a sessão do usuário, pode-se apenas utilizar cookies. Porém para sistemas mais complexos, nos quais possa se fazer algum tipo de tratamento com essas informações, é necessário armazená-las. Para isso utilizamos banco de dados.",
+    type: "normal"
+  },
+  {
+    text: "Bancos de dados são extremamente importantes, pois eles organizam os dados. Os bancos de dados mais comuns são relacionais. Bancos de dados relacionais armazenam suas informações em tabelas. Tabelas possuem colunas, que são os atributos. Podemos chamar essas tabelas de relações e cada uma das suas linhas chamamos de tuplas ou registros.",
+    type: "normal"
+  },
+  {
+    text: "Antes de criarmos um banco de dados, podemos fazer planos, para que o nosso banco de dados fique melhor estruturado. Esses planos são diagramas, os quais mostram quais entidades existem, quais são seus atributos e suas relações com outras tabelas. Por exemplo, podiamos criar um banco de dados para os estudantes do nosso reino. Para isso é necessário sabermos quais entidades estão envolvidas.",
+    type: "normal"
+  },
+  {
+    text: "Digamos que estão envolvidos os estudantes, seus professores e as salas de aula. Agora podemos definir quais são os atributos (características) dessas entidades. Dos estudantes elencamos nome e data de nascimento. Dos professores também o nome e área de interesse. Das salas de aula o número e uma descrição.",
+    type: "normal"
+  },
+  {
+    text: "Além das entidades e seus atributos, temos as relações, isso seria a forma que cada uma das entidades pode estar relacionada entre elas. Nesse caso, os estudantes do reino vão até as salas e cada uma dessas salas tem apenas um professor. Assim existe uma relação mais direta do professor com a sala, do que do aluno com a sala portanto vamos apenas explicitar a relação entre o professor e sala.",
+    type: "normal"
+  },
+  {
+    text: "Cada situação, cada software tem uma necessidade e uma forma. O importante no fim é sempre que tanto os desenvolvedores, tanto os usuários consigam utilizar o sistema e que ele esteja bem estruturado de acordo com o que ele precisa desempenhar. Por exemplo um mesmo software de gerenciamento de estoque pode ter diferentes atributos para diferentes empresas. Muitos produtos de um supermercado tem data de validade, porém esse mesmo atributo não é válido para quase todos os produtos de uma livraria.",
+    type: "normal"
+  },
+  {
+    text: "Além de entendermos uma forma de estruturar o processo de criação de software e que devemos planejar como iremos guardar as informações dos usuários. Vamos falar de como criar uma interface simples para a web. O jeito mais comum é utilizando HTML e CSS.",
+    type: "normal"
+  },
+  {
+    text: "HTML é uma linguagem de marcação de texto e CSS é uma linguagem de estilização. Para marcarmos textos em HTML utilizamos tags, toda tag é marcada pela estrutura diamante <>",
+    type: "normal"
+  },
+  {
+    text: "As tags presentes em todos os documentos é a HTML e a Body. Toda a página deve estar dentro da tag <html> e todo o conteúdo a ser exibido pro usuário deve estar dentro da tag <body>.",
+    type: "normal"
+  },
+  {
+    text: "As tags mais comuns são a <table> (para criar tabelas, precisa utilizar junto o tr(table row), th(table header), td(table data)), <ol>(lista ordenada), <ul>(lista não ordenada), <div>(define uma seção ou conteiner), <h1>(Texto com maior importancia da página, normalmente título principal), <h2>(subtitulo), <h3>(títulos menores), <p>(paragrafo, texto), <img>(mostra uma imagem).",
+    type: "normal"
+  },
+  {
+    text: "Quase todas as tags são inicializadas(<tag>) e depois encerradas(</tag>). O conteúdo de uma tag está entre o seu inicio e o seu fim. Já os seus atributos/parametros são colocados na inicialização da tag (<tag id='exemplo'>).",
+    type: "normal"
+  },
+  {
+    text: "Todas as tags podem ser personalizadas utilizando o CSS. É necessário informar pro CSS qual tag será estilizada, para isso temos os seletores CSS. Os mais comuns são seletor por id, seletor por classe, seletor por tag e seletores universais.",
+    type: "normal"
+  },
+  {
+    text: "Seletores por id para serem utilizados precisam ser definidos antes nas tags que serão utilizados, assim como os seletores por classe. Então antes de utilizarmos no arquivo .css tais seletores, é necessário utilizar eles no arquivo .html da seguinte forma: <tag id='exemplo'>",
+    type: "normal"
+  },
+  {
+    text: "Já os seletores por tag modificam todas as ocorrências daquela tag. Assim, no arquivo .css bastaria dizer o nome da tag e fazer suas estilizações.",
+    type: "normal"
+  },
+  {
+    text: "Uma estilização css se dá da seguinte forma: #nome_do_id { propriedade: valor; } ou .nome_da_classe { propriedade: valor; } ou nome_da_tag { propriedade: valor; }",
+    type: "normal"
+  },
+  {
+    text: "Este foi apenas o inicio da sua jornada. Continue firme!",
+    type: "ending",
+    showRestart: true
+  },
 ];
 
 let currentScene = 0;
@@ -124,14 +212,8 @@ function renderScene() {
 
   const imageDiv = document.createElement('div');
   imageDiv.className = 'scene-image';
-  if(currentScene === 0){
-    imageDiv.innerHTML = `<img src="aa.jpeg" alt="eitcha" width="100%" height="100%">`;
-  } else{
-  imageDiv.innerHTML = `<svg width="100%" height="100%" viewBox="0 0 300 200">
-    <rect width="100%" height="100%" fill="#111"/>
-    <text x="50%" y="50%" fill="#33ff33" text-anchor="middle">Cena ${currentScene + 1}</text>
-  </svg>`;
-  }
+  imageDiv.innerHTML = `<img src="./imagens/cena${currentScene+1}.jpeg" alt="eitcha" width="100%" height="100%">`;
+  
   
   const textDiv = document.createElement('div');
   textDiv.className = 'scene-text';
